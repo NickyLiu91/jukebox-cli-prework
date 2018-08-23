@@ -26,6 +26,10 @@ end
 def list(my_songs)
   #this method is different! Collect the keys of the my_songs hash and
   #list the songs by name
+  my_songs.each do |name, path|
+    puts name
+  end
+
 end
 
 
@@ -42,8 +46,26 @@ end
 
 def exit_jukebox
   #this method is the same as in jukebox.rb
+  puts "Goodbye"
 end
 
 def run(my_songs)
   #this method is the same as in jukebox.rb
+  help
+
+  puts "Please enter a command:"
+  input = ""
+
+  until input == "exit"
+    input = gets.chomp
+    if input == "help"
+      help
+    elsif input == "list"
+      list(songs)
+    elsif input == "play"
+      play(songs)
+    else input == "exit"
+      exit_jukebox
+    end
+  end
 end
