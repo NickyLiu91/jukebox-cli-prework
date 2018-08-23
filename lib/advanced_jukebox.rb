@@ -29,7 +29,6 @@ def list(my_songs)
   my_songs.each do |name, path|
     puts name
   end
-
 end
 
 
@@ -41,6 +40,14 @@ def play(my_songs)
   #if it isn't, tell them their choice is invalid
   #if it is, play the song using the system 'open <file path>' syntax
   #get the file path of the song by looking it up in the my_songs hash
+  puts "Please enter a song name or number:"
+  input = gets.chomp
+
+  if my_songs.keys.include?(input)
+    system "open #{my_songs[input]}"
+  else
+    puts "Invalid input, please try again"
+  end
 
 end
 
